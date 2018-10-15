@@ -16,8 +16,8 @@
 
 	<modules>
 		<module>childmodule1</module>
-		<!-- <module>childmodule2</module>
-		<module>childchildmodul1</module> -->
+		<module>childmodule2</module>
+		<module>childchildmodule1</module>
 	</modules>
 
 	<build>
