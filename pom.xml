@@ -15,8 +15,8 @@
 	</properties>
 
 	<modules>
-		<module>childmodule1</module>
-		<module>childmodule2</module>
+		<module>javasamples</module>
+		<module>vertxsamples</module>
 		<module>childchildmodule1</module>
 	</modules>
 
