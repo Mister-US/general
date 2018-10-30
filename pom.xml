@@ -16,7 +16,8 @@
 
 	<modules>
 		<module>javasamples</module>
-		<module>vertxsamples</module>
+		<module>vertxeventbussender</module>
+		<module>vertxeventbusreceiver</module>
 		<module>childchildmodule1</module>
 	</modules>
 

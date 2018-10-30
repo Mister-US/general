@@ -10,12 +10,12 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>javasamples</artifactId>
+	<artifactId>vertxeventbusreceiver</artifactId>
 
 	<properties>
 
 		<maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
-		<maven-shade-plugin.version>3.1.1</maven-shade-plugin.version>
+		<maven-shade-plugin.version>2.4.3</maven-shade-plugin.version>
 		<maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
 		<exec-maven-plugin.version>1.5.0</exec-maven-plugin.version>
 
@@ -24,17 +24,30 @@
 		<junit-platform-surefire-provider.version>1.2.0</junit-platform-surefire-provider.version>
 		<junit-platform-launcher.version>1.2.0</junit-platform-launcher.version>
 
-		<main.verticle>Verticle</main.verticle>
+		<main.verticle>de.us.verticle.EventbusReceiverVerticle</main.verticle>
+
 	</properties>
 
 	<dependencies>
 
 		<dependency>
-			<groupId>de.company</groupId>
-			<artifactId>childchildmodule1</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
+			<groupId>io.vertx</groupId>
+			<artifactId>vertx-core</artifactId>
+			<version>${vertx.version}</version>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>io.vertx</groupId>
+			<artifactId>vertx-hazelcast</artifactId>
+			<version>3.5.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.vertx</groupId>
+			<artifactId>vertx-web</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
@@ -46,7 +59,7 @@
 	<build>
 
 		<plugins>
-			<!-- ≈<plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
 				<version>${maven-shade-plugin.version}</version>
@@ -57,16 +70,6 @@
 							<goal>shade</goal>
 						</goals>
 						<configuration>
-							<filters>
-								<filter>
-									<artifact>*:*</artifact>
-									<excludes>
-										<exclude>META-INF/*.SF</exclude>
-										<exclude>META-INF/*.DSA</exclude>
-										<exclude>META-INF/*.RSA</exclude>
-									</excludes>
-								</filter>
-							</filters>
 							<transformers>
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
@@ -87,22 +90,6 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin> -->
-			<plugin>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>${maven-surefire-plugin.version}</version>
-				<dependencies>
-					<dependency>
-						<groupId>org.junit.platform</groupId>
-						<artifactId>junit-platform-surefire-provider</artifactId>
-						<version>${junit-platform-surefire-provider.version}</version>
-					</dependency>
-					<dependency>
-						<groupId>org.junit.jupiter</groupId>
-						<artifactId>junit-jupiter-engine</artifactId>
-						<version>${junit-jupiter.version}</version>
-					</dependency>
-				</dependencies>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
