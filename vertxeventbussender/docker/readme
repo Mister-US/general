@@ -1,0 +1,13 @@
+first install docker on your system
+
+create new folder on your file system (e.g. eventbussenderdocker)
+
+copy following files in this folder:
+	Dockerfile	
+	vertxeventbussender-1.0.0-SNAPSHOT-fat.jar
+
+create the docker image:	docker build -t eventbussender .
+
+start the docker container: docker run -v /inputfolderonyourfilesystem:/opt/input eventbussender
+
+HAVE FUN!!!
